@@ -1,0 +1,21 @@
+<div class="col-md-6">
+	<h1><%=@profile.name%></h1>
+
+	<ul class="list-group">
+	<% for t in @tasks do %>
+		<li class="list-group-item">
+			<span class="badge"><%= t.priority %></span> 
+			<%= link_to content_tag('span', '', class: 'fa fa-pencil') %>	<!-- add paths -->
+			<!-- <span class="fa fa-check"></span> -->
+			<%= link_to content_tag('span', '', class: 'fa fa-check') %>
+			<!-- <span class="fa fa-close"></span> -->
+			<%= link_to content_tag('span', '', class: 'fa fa-close') %>
+			Title: <%= t.title %> 
+		</li>
+	<% end %>
+	</ul>
+
+	<%= link_to "New task", new_task_path, class: 'btn btn-success'  %>
+	<%= link_to "Sign out", destroy_profile_session_path, :method => :delete, class: 'btn btn-danger'  %>
+
+</div>

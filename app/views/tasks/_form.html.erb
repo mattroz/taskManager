@@ -1,0 +1,8 @@
+<div class="col-md-6">
+	<%= simple_form_for @tasks do |t| %>
+		<p><%= t.input :title %></p>
+		<p><%= t.select :priority, 1..3 %></p>
+		<p><%= t.input :completed %></p>
+		<p><%=  t.button :submit, class: 'btn btn-primary' %></p>
+	<% end %>
+</div>
