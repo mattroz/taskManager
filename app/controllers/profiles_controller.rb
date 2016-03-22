@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
 	def new
 	end
 
+	#get current profile user params and get Tasks belongs only to this profile user
 	def index
 		@profile = current_profile		
 		@tasks = Task.where(id_profile: current_profile.id)
