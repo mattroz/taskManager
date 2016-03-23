@@ -35,7 +35,7 @@ class TasksController < ApplicationController
 
 	end
 
-	#delete existing Task and redirect to root
+	#delete chosen Task and redirect to root
 	def destroy
 		@task = Task.find(params[:id])
 		@task.destroy!
