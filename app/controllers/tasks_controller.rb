@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-	
+
 	#get Tasks belongs only to this profile user
 	def index
 		@tasks = Task.where(id_profile: current_profile.id)

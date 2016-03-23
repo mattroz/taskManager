@@ -4,7 +4,7 @@
 	<ul class="list-group">
 	<% for t in @tasks do %>
 		<li class="list-group-item">
-			<span class="badge"><%= t.priority %></span> 
+			<span class="badge"><%= Task::TASK_PRIORITY[t.priority].first %></span> 
 			<%= link_to content_tag('span', '', class: 'fa fa-pencil'), edit_task_path(t), class: 'action' %>	<!-- add paths -->
 			<%= link_to content_tag('span', '', class: 'fa fa-check') %>
 			<%= link_to content_tag('span', '', class: 'fa fa-close'), t, method: :delete %>
