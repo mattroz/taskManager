@@ -21,6 +21,18 @@ class TasksController < ApplicationController
 	end
 
 	def edit
+		@tasks = Task.find(params[:id])
+	end
+
+	#get current task we want to edit, change some attributes at the editing form
+	#and then update task with new attributes with checking it with task_params function
+	def update
+		@tasks = Task.find(params[:id])
+		@tasks.update_attributes task_params
+		@tasks.save
+
+		redirect_to root_path
+
 	end
 
 	#delete existing Task and redirect to root

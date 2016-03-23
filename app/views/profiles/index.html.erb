@@ -5,7 +5,7 @@
 	<% for t in @tasks do %>
 		<li class="list-group-item">
 			<span class="badge"><%= t.priority %></span> 
-			<%= link_to content_tag('span', '', class: 'fa fa-pencil') %>	<!-- add paths -->
+			<%= link_to content_tag('span', '', class: 'fa fa-pencil'), edit_task_path(t), class: 'action' %>	<!-- add paths -->
 			<!-- <span class="fa fa-check"></span> -->
 			<%= link_to content_tag('span', '', class: 'fa fa-check') %>
 			<!-- <span class="fa fa-close"></span> -->
