@@ -3,8 +3,8 @@ class Task < ActiveRecord::Base
 
 	#priorities hash for form
 	TASK_PRIORITY = [
-		['HIGH', 1], 
-		['MEDIUM', 2], 
-		['LOW', 3]
+		['High', 1], 
+		['Medium', 2], 
+		['Low', 3]
 	]
 end
