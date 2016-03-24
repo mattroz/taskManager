@@ -17,3 +17,12 @@
 .completed{
 	text-decoration: line-through;
 }
+
+.centered {
+     float: none;
+     width: 30em;
+}
+
+.header{
+	text-align: center;
+}
