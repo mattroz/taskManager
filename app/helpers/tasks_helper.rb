@@ -18,6 +18,6 @@ module TasksHelper
 
 
 	def get_task_date(task)
-		_str = task.updated_at.to_s[0..9]
+		_time = task.updated_at.to_formatted_s(:long)
 	end
 end
