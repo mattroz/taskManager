@@ -35,9 +35,6 @@
 							<!-- priority-1 'cause array countered from 0 to n -->
 							<span class="badge"><%= Task::TASK_PRIORITY[t.priority-1].first %></span> 
 						</td>
-						<td>
-							<%= t.completed %>
-						</td>
 					</tr>
 				<% end %>
 			</tbody>
@@ -59,13 +56,12 @@
 	      <th>Actions</th>
 	      <th>Task Title</th>
 	      <th>Created at</th>
-	      <th>Priority</th>
 	    </tr>
 	  </thead>
 
 		<tbody>
 		<% for t in @completed_tasks do %>
-			<tr class="<%= task_priority_style(t) %>">
+			<tr class="completed active">
 				<td>
 					<%= link_to content_tag('span', '', class: 'fa fa-trash'), t, method: :delete %>
 				</td>
@@ -78,10 +74,6 @@
 					<%= get_task_date(t) %>
 				</td>
 				<!-- task priority -->
-				<td>
-					<!-- priority-1 'cause array countered from 0 to n -->
-					<span class="badge"><%= Task::TASK_PRIORITY[t.priority-1].first %></span> 
-				</td>
 			</tr>
 		<% end %>
 		</tbody>
