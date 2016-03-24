@@ -1,5 +1,5 @@
 <div class="col-md-6">
-	<h1><%=@profile.name%></h1>
+	<h1>My tasks</h1>
 
 	<div class="table-responsive">
 		<table class="table table-hover">
@@ -8,11 +8,11 @@
 				<td>
 					<%= link_to content_tag('span', '', class: 'fa fa-pencil'), edit_task_path(t), class: 'action' %>	<!-- add paths -->
 					<%= link_to content_tag('span', '', class: 'fa fa-check') %>
-					<%= link_to content_tag('span', '', class: 'fa fa-close'), t, method: :delete %>
+					<%= link_to content_tag('span', '', class: 'fa fa-trash'), t, method: :delete %>
 				</td>
 				<!-- task title -->
 				<td>
-					Title: <%= t.title %> 
+					<%= t.title %> 
 				</td>
 				<!-- task date -->
 				<td>
