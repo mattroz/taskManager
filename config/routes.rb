@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 	resources :profiles
   resources :tasks
 
+  get 'tasks/complete/:id' => 'tasks#complete', as: :task_complete
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

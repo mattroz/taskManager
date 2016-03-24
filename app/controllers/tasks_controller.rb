@@ -14,6 +14,7 @@ class TasksController < ApplicationController
 	def create
 		@task = Task.new task_params
 		@task.id_profile = current_profile.id
+		@task.completed = false;
 
 		@task.save
 
@@ -39,6 +40,18 @@ class TasksController < ApplicationController
 	def destroy
 		@task = Task.find(params[:id])
 		@task.destroy!
+
+		redirect_to root_path
+	end
+
+	def show
+		redirect_to root_path
+	end
+
+	def complete
+		@task = Task.find(params[:id])
+		@task.completed = true;
+		@task.save
 
 		redirect_to root_path
 	end

@@ -7,7 +7,9 @@ class ProfilesController < ApplicationController
 	#get current profile user params and get Tasks belongs only to this profile user
 	def index
 		@profile = current_profile		
-		@tasks = Task.where(id_profile: current_profile.id)
+		
+		@uncompleted_tasks = Task.where(id_profile: current_profile.id, completed: false)
+		@completed_tasks = Task.where(id_profile: current_profile.id, completed: true)
 	end
 
 	def create
