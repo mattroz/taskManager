@@ -1,17 +1,32 @@
 <div class="col-md-6">
 	<h1><%=@profile.name%></h1>
 
-	<ul class="list-group">
-	<% for t in @tasks do %>
-		<li class="list-group-item">
-			<span class="badge"><%= Task::TASK_PRIORITY[t.priority-1].first %></span> 
-			<%= link_to content_tag('span', '', class: 'fa fa-pencil'), edit_task_path(t), class: 'action' %>	<!-- add paths -->
-			<%= link_to content_tag('span', '', class: 'fa fa-check') %>
-			<%= link_to content_tag('span', '', class: 'fa fa-close'), t, method: :delete %>
-			Title: <%= t.title %> 
-		</li>
-	<% end %>
-	</ul>
+	<div class="table-responsive">
+		<table class="table table-hover">
+		<% for t in @tasks do %>
+			<tr class="<%= task_priority_style(t) %>">
+				<td>
+					<%= link_to content_tag('span', '', class: 'fa fa-pencil'), edit_task_path(t), class: 'action' %>	<!-- add paths -->
+					<%= link_to content_tag('span', '', class: 'fa fa-check') %>
+					<%= link_to content_tag('span', '', class: 'fa fa-close'), t, method: :delete %>
+				</td>
+				<!-- task title -->
+				<td>
+					Title: <%= t.title %> 
+				</td>
+				<!-- task date -->
+				<td>
+					<%= get_task_date(t) %>
+				</td>
+				<!-- task priority -->
+				<td>
+					<!-- priority-1 'cause array countered from 0 to n -->
+					<span class="badge"><%= Task::TASK_PRIORITY[t.priority-1].first %></span> 
+				</td>
+			</tr>
+		<% end %>
+		</table>
+	</div>
 
 	<%= link_to "New task", new_task_path, class: 'btn btn-success'  %>
 	<%= link_to "Sign out", destroy_profile_session_path, :method => :delete, class: 'btn btn-danger'  %>
